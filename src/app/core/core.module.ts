@@ -1,10 +1,13 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
-import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../../environments/environment';
+import { NgxsDispatchPluginModule } from '@ngxs-labs/dispatch-decorator';
+import { EnsureImportedOnceModule } from './modules/ensure-imported-once';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire';
 
 
 @NgModule({
@@ -14,8 +17,17 @@ import { environment } from '../../environments/environment';
     NgxsModule.forRoot([], {developmentMode: !environment.production}),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
-    ReactiveFormsModule
+    NgxsDispatchPluginModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
+  ],
+  exports: [
+    AngularFireModule,
+    AngularFirestoreModule
   ]
 })
-export class CoreModule {
+export class CoreModule extends EnsureImportedOnceModule {
+  public constructor(@SkipSelf() @Optional() parent: CoreModule) {
+    super(parent);
+  }
 }
