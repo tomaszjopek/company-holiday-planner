@@ -1,0 +1,12 @@
+<div class="card" >
+  <img class="card-img-top" [src]="cardTopImageUrl" alt="Card image cap">
+  <div class="card-body">
+    <h5 *ngIf="cardTitle" class="card-title">{{cardTitle}}</h5>
+    <h6 *ngIf="subTitle" class="card-subtitle mb-2 text-muted">{{subTitle}}</h6>
+    <ng-container class="card-text" [ngTemplateOutlet]="cardContentTemplate" [ngTemplateOutletContext]="{$implicit: cardContentTemplateContext}">
+    </ng-container>
+    <!--<a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>-->
+  </div>
+</div>
+

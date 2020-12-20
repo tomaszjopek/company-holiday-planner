@@ -1,2 +1,22 @@
-<p>planner-container works!</p>
+<div class="view-container row">
+  <div class="col-4"><p>Filter works</p></div>
+  <div class="col-8">
+      <div class="row">
+        <div class="col-lg-4 col-sm-6" *ngFor="let worker of workers$ | async">
+          <app-info-card [cardTitle]="worker | objectKeysText:'firstName':'lastName'"
+                         [cardTopImageUrl]="worker.img"
+                         [cardContentTemplate]="workerCardContent"
+                         [cardContentTemplateContext]="worker"
+                         [subTitle]="worker.position">
+          </app-info-card>
+        </div>
+      </div>
+  </div>
+</div>
+
+<ng-template #workerCardContent let-worker >
+  {{worker | objectKeysText:'firstName':'lastName'}}
+</ng-template>
+
+
 <ngx-spinner></ngx-spinner>

@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 import { NgxsModule } from '@ngxs/store';
 import { PlannerState } from './store/planner.state';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { PlannerState } from './store/planner.state';
     SharedModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
-    NgxsModule.forFeature([PlannerState])
+    NgxsModule.forFeature([PlannerState]),
+    CommonModule
   ]
 })
 export class PlannerModule { }

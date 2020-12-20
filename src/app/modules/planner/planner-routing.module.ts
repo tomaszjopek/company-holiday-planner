@@ -4,7 +4,7 @@ import { PlannerContainerComponent } from './containers/planner-container/planne
 
 const routes: Routes = [
   {
-    path: 'planner',
+    path: 'planner/workers',
     component: PlannerContainerComponent
   }
 ];

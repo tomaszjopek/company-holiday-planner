@@ -8,6 +8,7 @@ import { NgxsDispatchPluginModule } from '@ngxs-labs/dispatch-decorator';
 import { EnsureImportedOnceModule } from './modules/ensure-imported-once';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
+import { NgxsFirestoreModule } from '@ngxs-labs/firestore-plugin';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { AngularFireModule } from '@angular/fire';
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     NgxsDispatchPluginModule.forRoot(),
+    NgxsFirestoreModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule
   ],

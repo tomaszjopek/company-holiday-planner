@@ -7,6 +7,7 @@ import { AbstractWithSubscription } from '../../../../core/components/abstract-w
 import { SpinnerService } from '../../../../core/services/spinner.service';
 import FetchAll = Planner.FetchAll;
 import { PlannerState } from '../../store/planner.state';
+import { Worker } from '../../model/planner-data';
 
 @Component({
   selector: 'app-planner-container',
@@ -18,6 +19,9 @@ export class PlannerContainerComponent extends AbstractWithSubscription implemen
 
   @Select(PlannerState.isLoading)
   isLoading$: Observable<boolean>;
+
+  @Select(PlannerState.workers)
+  workers$: Observable<Worker[]>;
 
   constructor(private spinnerService: SpinnerService) {
     super();
