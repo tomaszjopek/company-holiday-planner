@@ -49,12 +49,42 @@ export class PlannerState implements NgxsOnInit {
     const state = ctx.getState();
     ctx.patchState({...state, loading: true});
 
-    ctx.patchState({...state, workers: [
-      {firstName: 'Tomasz', lastName: 'Jopek', img: 'https://via.placeholder.com/50.png', position: 'Developer'},
-      {firstName: 'Tomasz', lastName: 'Jopek2', img: 'https://via.placeholder.com/50.png', position: 'Project Manager'},
-      {firstName: 'Tomasz', lastName: 'Jopek3', img: 'https://via.placeholder.com/50.png', position: 'Tester'},
-      {firstName: 'Tomasz', lastName: 'Jopek4', img: 'https://via.placeholder.com/50.png', position: 'Analityk'}
-      ], loading: false});
+    ctx.patchState({
+      ...state, workers: [
+        {
+          firstName: 'Tomasz',
+          lastName: 'Jopek',
+          img: 'https://via.placeholder.com/50.png',
+          position: 'Developer',
+          phoneNumber: '777 112 345',
+          email: 'tom.jop@planner.pl'
+        },
+        {
+          firstName: 'Jan',
+          lastName: 'Nowak',
+          img: 'https://via.placeholder.com/50.png',
+          position: 'Project Manager',
+          phoneNumber: '777 112 345',
+          email: 'jan.nowak@planner.pl'
+        },
+        {
+          firstName: 'Daniel',
+          lastName: 'Kowalski',
+          img: 'https://via.placeholder.com/50.png',
+          position: 'Tester',
+          phoneNumber: '777 112 345',
+          email: 'daniel.kowalski@planner.pl'
+        },
+        {
+          firstName: 'Wiktor',
+          lastName: 'Drab',
+          img: 'https://via.placeholder.com/50.png',
+          position: 'Analityk',
+          phoneNumber: '777 112 345',
+          email: 'wiktor.drab@test.pl'
+        }
+      ], loading: false
+    });
 
 
   }

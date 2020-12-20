@@ -15,7 +15,14 @@
 </div>
 
 <ng-template #workerCardContent let-worker >
-  {{worker | objectKeysText:'firstName':'lastName'}}
+  <div class="row" *ngIf="worker.phoneNumber">
+    <div class="col-2"><fa-icon [icon]="faPhone"></fa-icon></div>
+    <div class="col-10">{{worker.phoneNumber}}</div>
+  </div>
+  <div class="row" *ngIf="!!worker.email">
+    <div class="col-2"><fa-icon [icon]="faEnvelope"></fa-icon></div>
+    <div class="col-10">{{worker.email}}</div>
+  </div>
 </ng-template>
 
 

@@ -8,6 +8,8 @@ import { SpinnerService } from '../../../../core/services/spinner.service';
 import FetchAll = Planner.FetchAll;
 import { PlannerState } from '../../store/planner.state';
 import { Worker } from '../../model/planner-data';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-planner-container',
@@ -16,6 +18,9 @@ import { Worker } from '../../model/planner-data';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlannerContainerComponent extends AbstractWithSubscription implements OnInit {
+
+  faPhone = faPhone;
+  faEnvelope = faEnvelope;
 
   @Select(PlannerState.isLoading)
   isLoading$: Observable<boolean>;
